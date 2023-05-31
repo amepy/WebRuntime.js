@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRuntime.js</title>
+</head>
+<body>
+    <div id="editor" style="min-height: 100px"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ext-language_tools.js"></script>
+<script>
+    var c_editor = ace.edit("editor");
+    c_editor.$blockScrolling = Infinity;
+    c_editor.setOptions({
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true
+    });
+    c_editor.setTheme("ace/theme/xcode");
+    c_editor.getSession().setMode("ace/mode/javascript");
+  </script>
+
+    <button onclick="c_run()">Run</button><br/>
+    <div id="console"></div>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #0f0f0f;
+            text-align: center;
+        }
+
+        button {
+            width: 60vw;
+            height: 40px;
+            font-size: large;
+            font-weight: 700;
+            border-radius: 5px;
+            background: #000;
+            color: #fff;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        #console {
+            width: 100vw;
+            height: calc(100vh - 250px);
+            background: #000;
+            color: #fff;
+            font-size: 16px;
+            text-align: left;
+            box-sizing: border-box;
+            border: #fff 2px solid;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 10px;
+            overflow-y: auto;
+        }
+
+        #editor {
+            height: 200px;
+            text-align: left;
+        }
+
+        #c_text {
+            width: calc(100vw - 20px);
+            border-bottom: solid #fff 1px;
+        }
+
+        .e {
+            color: red;
+        }
+    </style>
+
+    <script src="run.js"></script>
+</body>
+</html>
